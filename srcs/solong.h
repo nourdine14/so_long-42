@@ -6,7 +6,7 @@
 /*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 19:41:20 by nakebli           #+#    #+#             */
-/*   Updated: 2023/02/11 17:01:19 by nakebli          ###   ########.fr       */
+/*   Updated: 2023/02/11 18:03:55 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ typedef struct s_data
 	void	*img_col;
 	void	*img_exit;
 	char	**map;
-	int		c_size;
+	int		height;
+	int		e;
+	int		p;
+	int		c;
 
 }	t_data;
 
