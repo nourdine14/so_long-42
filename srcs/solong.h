@@ -6,7 +6,7 @@
 /*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 19:41:20 by nakebli           #+#    #+#             */
-/*   Updated: 2023/02/11 18:03:55 by nakebli          ###   ########.fr       */
+/*   Updated: 2023/02/11 19:07:45 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,11 @@ typedef struct s_data
 	void	*img_exit;
 	char	**map;
 	int		height;
-	int		e;
-	int		p;
 	int		c;
 
 }	t_data;
 
-int	check_map(char **map, int height);
+int	check_map(t_data *data);
 int	pathe_valid(char **map, int height);
 
 #endif
