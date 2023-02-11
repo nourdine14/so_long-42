@@ -6,20 +6,21 @@
 #    By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 23:42:34 by nakebli           #+#    #+#              #
-#    Updated: 2023/02/11 14:35:05 by nakebli          ###   ########.fr        #
+#    Updated: 2023/02/11 17:02:33 by nakebli          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =    so_long
 
 SRCS =	main.c \
-		../check/check_map.c
+		check/check_map.c \
+		check/path_valid.c
 
 OBJS = $(SRCS:.c=.o)
 
 CFLAGS = -Wall -Werror -Wextra
 
-HEADER = ../check/check.h
+HEADER = solong.h
 
 RM = rm -rf
 

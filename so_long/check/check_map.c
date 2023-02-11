@@ -6,11 +6,11 @@
 /*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 13:51:46 by nakebli           #+#    #+#             */
-/*   Updated: 2023/02/11 15:05:59 by nakebli          ###   ########.fr       */
+/*   Updated: 2023/02/11 16:40:53 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "check.h"
+#include "../solong.h"
 
 static int	check_top_button(int c, char *map, size_t len, int h)
 {
