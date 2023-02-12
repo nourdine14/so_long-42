@@ -6,7 +6,7 @@
 /*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 20:12:07 by nakebli           #+#    #+#             */
-/*   Updated: 2023/02/11 18:28:18 by nakebli          ###   ########.fr       */
+/*   Updated: 2023/02/12 21:18:52 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int ac, char **av)
 {
 	t_data	data;
 	int		fd;
-	int		j;
+	size_t	j;
 	char	*map_name;
 
 	if (ac == 2)
@@ -49,11 +49,11 @@ int	main(int ac, char **av)
 			j++;
 		}
 		if (!check_map(&data))
-			return (ft_putstr_fd("BAD Map :(", 1), 1);
-		if (!pathe_valid(data.map, data.height))
-			return (ft_putstr_fd("NO OATH VALID :(", 1), 1);
+			return (ft_putstr_fd("BAD Map :(", 2), 1);
+		if (!check_flood_fill(&data))
+			return (ft_putstr_fd("NO OATH VALID :(", 2), 1);
 	}
 	else
-		ft_putstr_fd("syntax error", 1);
+		ft_putstr_fd("syntax error", 2);
 	return (0);
 }

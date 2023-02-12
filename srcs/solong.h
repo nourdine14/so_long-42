@@ -6,7 +6,7 @@
 /*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 19:41:20 by nakebli           #+#    #+#             */
-/*   Updated: 2023/02/11 19:07:45 by nakebli          ###   ########.fr       */
+/*   Updated: 2023/02/12 20:58:44 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,13 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include "../libft/libft.h"
+# include <limits.h>
 # include <mlx.h>
 
 typedef struct s_pos
 {
-	int	x;
-	int	y;
+	size_t	x;
+	size_t	y;
 }	t_pos;
 
 typedef struct s_data
@@ -38,12 +39,12 @@ typedef struct s_data
 	void	*img_col;
 	void	*img_exit;
 	char	**map;
-	int		height;
+	size_t	height;
 	int		c;
 
 }	t_data;
 
 int	check_map(t_data *data);
-int	pathe_valid(char **map, int height);
+int	check_flood_fill(t_data *data);
 
 #endif

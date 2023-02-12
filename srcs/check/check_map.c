@@ -6,7 +6,7 @@
 /*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 13:51:46 by nakebli           #+#    #+#             */
-/*   Updated: 2023/02/11 19:12:56 by nakebli          ###   ########.fr       */
+/*   Updated: 2023/02/12 20:56:01 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	check_rep(t_data *data, int i, int j)
 {
 	if (data->map[j][i] == 'E')
 	{
-		if (data->exit_pos.x == -1 && data->exit_pos.y == -1)
+		if (data->exit_pos.x == 0 && data->exit_pos.y == 0)
 		{	
 			data->exit_pos.x = i;
 			data->exit_pos.y = j;
@@ -44,7 +44,7 @@ static int	check_rep(t_data *data, int i, int j)
 	}
 	if (data->map[j][i] == 'P')
 	{
-		if (data->player_pos.x == -1 && data->player_pos.y == -1)
+		if (data->player_pos.x == 0 && data->player_pos.y == 0)
 		{
 			data->player_pos.x = i;
 			data->player_pos.y = j;
@@ -70,10 +70,10 @@ static int	check_body(t_data *data)
 	int	j;
 
 	j = -1;
-	data->player_pos.x = -1;
-	data->player_pos.y = -1;
-	data->exit_pos.x = -1;
-	data->exit_pos.y = -1;
+	data->player_pos.x = 0;
+	data->player_pos.y = 0;
+	data->exit_pos.x = 0;
+	data->exit_pos.y = 0;
 	while (data->map[++j])
 	{
 		if (!check_top_button(j, data->map[j],
