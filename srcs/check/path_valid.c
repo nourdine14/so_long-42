@@ -6,7 +6,7 @@
 /*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:44:50 by nakebli           #+#    #+#             */
-/*   Updated: 2023/02/12 21:15:14 by nakebli          ###   ########.fr       */
+/*   Updated: 2023/02/15 20:41:58 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,32 @@ char	**flood_fill(char **map, size_t x, size_t y, size_t height)
 	return (NULL);
 }
 
+char	**dup_2d_arr(char **map, int height)
+{
+	int		i;
+	char	**mapp;
+	
+	mapp = malloc (sizeof(char *) * (height + 1));
+	if (!mapp)
+		return (NULL);
+	i = -1;
+	while (map[++i])
+	{
+		mapp[i] = ft_strdup(map[i]);
+	}
+	return (mapp);
+}
+
+void	free_2d_arr(char **map)
+{
+	int i;
+	
+	i = -1;
+	while (map[++i])
+		free(map[i]);
+	free(map);
+}
+
 int	check_flood_fill(t_data *data)
 {
 	char	**map;
@@ -36,7 +62,8 @@ int	check_flood_fill(t_data *data)
 
 	e = 0;
 	c = 0;
-	map = flood_fill(data->map, data->player_pos.x,
+	map = dup_2d_arr(data->map, data->height);
+	map = flood_fill(map, data->player_pos.x,
 			data->player_pos.y, data->height);
 	if (!map)
 		return (0);
@@ -52,8 +79,11 @@ int	check_flood_fill(t_data *data)
 				c++;
 		}
 	}
-	printf("e:%d\nc:%d\n", e,c);
 	if (e == 0 && c == 0)
+	{
+		free_2d_arr(map);
 		return (1);
+	}
+	free_2d_arr(map);
 	return (0);
 }
