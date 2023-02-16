@@ -6,7 +6,7 @@
 /*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:44:50 by nakebli           #+#    #+#             */
-/*   Updated: 2023/02/15 20:41:58 by nakebli          ###   ########.fr       */
+/*   Updated: 2023/02/16 19:10:35 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	**flood_fill(char **map, size_t x, size_t y, size_t height)
 {
-	if (x < ft_strlen(map[0]) && y < height && map[y][x] != '1' && map[y][x] != 'F')
+	if (x < ft_strlen(map[0]) && y < height && map[y][x] != '1' && map[y][x] != 'X')
 	{
-		map[y][x] = 'F';
+		map[y][x] = 'X';
 		flood_fill(map, x + 1, y, height);
 		flood_fill(map, x - 1, y, height);
 		flood_fill(map, x, y + 1, height);
