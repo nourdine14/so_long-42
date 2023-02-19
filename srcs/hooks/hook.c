@@ -6,7 +6,7 @@
 /*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 19:27:05 by nakebli           #+#    #+#             */
-/*   Updated: 2023/02/19 20:07:16 by nakebli          ###   ########.fr       */
+/*   Updated: 2023/02/19 20:38:36 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ void	bottom(t_data *data)
 	{
 		if (data->map[data->player_pos.y + 1][data->player_pos.x] == 'E'
 			&& data->c == 0)
-		{
-			free_data(data);
 			exit(0);
-		}
 		else
 		{
 			if (data->map[data->player_pos.y + 1][data->player_pos.x] == 'C')
@@ -64,10 +61,7 @@ void	left(t_data *data)
 	{
 		if (data->map[data->player_pos.y][data->player_pos.x - 1] == 'E'
 			&& data->c == 0)
-		{
-			free_data(data);
 			exit(0);
-		}
 		else
 		{
 			if (data->map[data->player_pos.y][data->player_pos.x - 1] == 'C')
@@ -87,10 +81,7 @@ void	right(t_data *data)
 	{
 		if (data->map[data->player_pos.y][data->player_pos.x + 1] == 'E'
 			&& data->c == 0)
-		{
-			free_data(data);
 			exit(0);
-		}
 		else
 		{
 			if (data->map[data->player_pos.y][data->player_pos.x + 1] == 'C')
@@ -115,9 +106,6 @@ int	fun(int keycode, t_data *data)
 	if (keycode == 2 || keycode == 124)
 		right(data);
 	if (keycode == 53)
-	{
-		free_data(data);
 		exit(0);
-	}
 	return (1);
 }

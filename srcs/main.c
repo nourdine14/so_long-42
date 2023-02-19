@@ -6,7 +6,7 @@
 /*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 20:12:07 by nakebli           #+#    #+#             */
-/*   Updated: 2023/02/19 19:37:24 by nakebli          ###   ########.fr       */
+/*   Updated: 2023/02/19 20:33:36 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,9 @@ void	free_data(t_data *data)
 {
 	int	i;
 
-	if (data->mlx)
-		free(data->mlx);
-	if (data->win)
-		free(data->win);
-	if (data->image)
-		free(data->image);
+	free(data->mlx);
+	free(data->win);
+	free(data->image);
 	i = -1;
 	while (data->map[++i])
 		free(data->map[i]);
