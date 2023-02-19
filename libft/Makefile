@@ -6,7 +6,7 @@
 #    By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 23:42:34 by nakebli           #+#    #+#              #
-#    Updated: 2023/02/10 13:40:24 by nakebli          ###   ########.fr        #
+#    Updated: 2023/02/18 18:17:37 by nakebli          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,19 +48,7 @@ SRCS =	ft_isalpha.c \
 	ft_putnbr_fd.c \
 	get_next_line.c
 
-B_SRCS = ft_lstnew.c \
-	ft_lstadd_front.c \
-	ft_lstsize.c \
-	ft_lstlast.c \
-	ft_lstadd_back.c \
-	ft_lstdelone.c \
-	ft_lstclear.c \
-	ft_lstiter.c \
-	ft_lstmap.c
-
 OBJS = $(SRCS:.c=.o)
-
-B_OBJS = $(B_SRCS:.c=.o)
 
 CFLAGS = -Wall -Werror -Wextra
 
@@ -76,10 +64,8 @@ $(NAME):$(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
 %.o: %.c $(HEADER)
-	gcc $(CFLAGS) -c $< -o $@
-
-bonus : $(B_OBJS) $(OBJS)
-	$(AR) $(NAME) $(B_OBJS) $(OBJS)
+	@gcc $(CFLAGS) -c $< -o $@
+	@printf "\033[0;32m{compiling : %-30s .....} \r" ${notdir $@}
 
 clean:
 	$(RM) $(OBJS) $(B_OBJS)
@@ -88,3 +74,7 @@ fclean:clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+.SILENT : $(NAME) clean fclean re
+
+.PHONY : all clean fclean re
