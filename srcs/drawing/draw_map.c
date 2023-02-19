@@ -6,7 +6,7 @@
 /*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 21:42:18 by nakebli           #+#    #+#             */
-/*   Updated: 2023/02/19 12:30:26 by nakebli          ###   ########.fr       */
+/*   Updated: 2023/02/19 19:38:00 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,27 @@ void	draw(char c, t_data *data, int *w, int *h)
 {
 	if (c == '1')
 	{
-		data->img_wall = mlx_xpm_file_to_image(data->mlx,
+		data->image = mlx_xpm_file_to_image(data->mlx,
 				"../images/tree.xpm", &data->a, &data->b);
-		mlx_put_image_to_window(data->mlx, data->win, data->img_wall, *w, *h);
+		mlx_put_image_to_window(data->mlx, data->win, data->image, *w, *h);
 	}
-	if (c == 'C')
+	else if (c == 'C')
 	{
-		data->img_wall = mlx_xpm_file_to_image(data->mlx,
+		data->image = mlx_xpm_file_to_image(data->mlx,
 				"../images/collect.xpm", &data->a, &data->b);
-		mlx_put_image_to_window(data->mlx, data->win, data->img_wall, *w, *h);
+		mlx_put_image_to_window(data->mlx, data->win, data->image, *w, *h);
 	}
-	if (c == 'P')
+	else if (c == 'P')
 	{
-		data->img_wall = mlx_xpm_file_to_image(data->mlx,
+		data->image = mlx_xpm_file_to_image(data->mlx,
 				"../images/player_top.xpm", &data->a, &data->b);
-		mlx_put_image_to_window(data->mlx, data->win, data->img_wall, *w, *h);
+		mlx_put_image_to_window(data->mlx, data->win, data->image, *w, *h);
 	}
-	if (c == 'E')
+	else if (c == 'E')
 	{
-		data->img_wall = mlx_xpm_file_to_image(data->mlx,
+		data->image = mlx_xpm_file_to_image(data->mlx,
 				"../images/box.xpm", &data->a, &data->b);
-		mlx_put_image_to_window(data->mlx, data->win, data->img_wall, *w, *h);
+		mlx_put_image_to_window(data->mlx, data->win, data->image, *w, *h);
 	}
 }
 
@@ -56,9 +56,9 @@ void	draw_map(t_data	*data)
 		w = 0;
 		while (data->map[i][++j])
 		{
-			data->img_wall = mlx_xpm_file_to_image(data->mlx,
+			data->image = mlx_xpm_file_to_image(data->mlx,
 					"../images/floor.xpm", &data->a, &data->b);
-			mlx_put_image_to_window(data->mlx, data->win, data->img_wall, w, h);
+			mlx_put_image_to_window(data->mlx, data->win, data->image, w, h);
 			draw(data->map[i][j], data, &w, &h);
 			w += SIZE;
 		}

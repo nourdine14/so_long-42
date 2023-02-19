@@ -6,7 +6,7 @@
 /*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 19:41:20 by nakebli           #+#    #+#             */
-/*   Updated: 2023/02/18 19:16:47 by nakebli          ###   ########.fr       */
+/*   Updated: 2023/02/19 18:49:27 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 
 # define SIZE 40
 
+//	data
 typedef struct s_pos
 {
 	size_t	x;
@@ -35,7 +36,7 @@ typedef struct s_data
 	void	*win;
 	t_pos	player_pos;
 	t_pos	exit_pos;
-	void	*img_wall;
+	void	*image;
 	char	**map;
 	size_t	height;
 	int		c;
@@ -44,11 +45,20 @@ typedef struct s_data
 	int		steps;
 }	t_data;
 
+//	check map
 int		check_map(t_data *data);
 int		check_flood_fill(t_data *data);
+
+//	drawing
 void	draw_map(t_data *data);
+
+//	hook
 int		fun(int keycode, t_data *data);
+
+//	free data
 void	free_data(t_data *data);
+
+//	drawing assisters
 void	top_assister(t_data *data);
 void	bottom_assister(t_data *data);
 void	left_assister(t_data *data);

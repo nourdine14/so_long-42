@@ -6,7 +6,7 @@
 /*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 20:12:07 by nakebli           #+#    #+#             */
-/*   Updated: 2023/02/19 16:03:41 by nakebli          ###   ########.fr       */
+/*   Updated: 2023/02/19 19:37:24 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	free_data(t_data *data)
 		free(data->mlx);
 	if (data->win)
 		free(data->win);
-	if (data->img_wall)
-		free(data->img_wall);
+	if (data->image)
+		free(data->image);
 	i = -1;
 	while (data->map[++i])
 		free(data->map[i]);
@@ -42,9 +42,9 @@ char	**get_height(char *map_name, t_data *data)
 	{
 		line = get_next_line(fd);
 		free (line);
-		data->height += 1;
 		if (!line)
 			break ;
+		data->height += 1;
 	}
 	map = (char **)malloc(sizeof(char *) * (data->height + 1));
 	if (!map)
