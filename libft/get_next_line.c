@@ -6,7 +6,7 @@
 /*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 12:52:00 by nakebli           #+#    #+#             */
-/*   Updated: 2023/02/10 13:40:59 by nakebli          ###   ########.fr       */
+/*   Updated: 2023/02/19 20:41:05 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,7 @@ static char	*read_save(int fd, char *line)
 	line = NULL;
 	buff = ft_calloc(2, sizeof(char));
 	if (!buff)
-	{
-		if (line)
-			free(line);
 		return (NULL);
-	}
 	i = 1;
 	while (i != 0 && !ft_strchr(line, '\n'))
 	{

@@ -6,13 +6,13 @@
 /*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 13:51:46 by nakebli           #+#    #+#             */
-/*   Updated: 2023/02/12 20:56:01 by nakebli          ###   ########.fr       */
+/*   Updated: 2023/02/20 08:24:48 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../solong.h"
 
-static int	check_top_button(int c, char *map, size_t len, int h)
+static int	check_top_bottom(int c, char *map, size_t len, int h)
 {
 	int	j;
 
@@ -66,17 +66,17 @@ static int	check_content(char c)
 
 static int	check_body(t_data *data)
 {
-	int	i;
-	int	j;
+	int		i;
+	size_t	j;
 
-	j = -1;
+	j = 0;
 	data->player_pos.x = 0;
 	data->player_pos.y = 0;
 	data->exit_pos.x = 0;
 	data->exit_pos.y = 0;
-	while (data->map[++j])
+	while (j < data->height)
 	{
-		if (!check_top_button(j, data->map[j],
+		if (!check_top_bottom(j, data->map[j],
 				ft_strlen(data->map[0]), data->height - 1))
 			return (0);
 		if (data->map[j][0] != '1'
@@ -88,6 +88,7 @@ static int	check_body(t_data *data)
 			if (!check_content(data->map[j][i]) || !check_rep(data, i, j))
 				return (0);
 		}
+		j++;
 	}
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:44:50 by nakebli           #+#    #+#             */
-/*   Updated: 2023/02/19 20:26:18 by nakebli          ###   ########.fr       */
+/*   Updated: 2023/02/20 09:19:28 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,12 @@ char	**dup_2d_arr(char **map, int height)
 	mapp = malloc (sizeof(char *) * (height + 1));
 	if (!mapp)
 		return (NULL);
-	i = -1;
-	while (map[++i])
+	i = 0;
+	mapp[height] = NULL;
+	while (i < height)
 	{
 		mapp[i] = ft_strdup(map[i]);
+		i++;
 	}
 	return (mapp);
 }
@@ -51,7 +53,7 @@ void	free_2d_arr(char **map)
 	free(map);
 }
 
-int8_t	count_e_c(char **map)
+int8_t	count_e_c(char **map, int height)
 {
 	int	i;
 	int	j;
@@ -61,7 +63,7 @@ int8_t	count_e_c(char **map)
 	e = 0;
 	c = 0;
 	i = -1;
-	while (map[++i])
+	while (++i < height)
 	{
 		j = -1;
 		while (map[i][++j])
@@ -87,7 +89,7 @@ int	check_flood_fill(t_data *data)
 		data->player_pos.y, data->height);
 	if (!map)
 		return (0);
-	if (!count_e_c(map))
+	if (!count_e_c(map, data->height))
 	{
 		free_2d_arr(map);
 		return (0);

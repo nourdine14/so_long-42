@@ -6,7 +6,7 @@
 /*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 19:27:05 by nakebli           #+#    #+#             */
-/*   Updated: 2023/02/19 20:38:36 by nakebli          ###   ########.fr       */
+/*   Updated: 2023/02/20 09:06:16 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,7 @@ void	top(t_data *data)
 	{
 		if (data->map[data->player_pos.y - 1][data->player_pos.x] == 'E'
 			&& data->c == 0)
-		{
-			free_data(data);
 			exit(0);
-		}
 		else
 		{
 			if (data->map[data->player_pos.y - 1][data->player_pos.x] == 'C')

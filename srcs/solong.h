@@ -6,7 +6,7 @@
 /*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 19:41:20 by nakebli           #+#    #+#             */
-/*   Updated: 2023/02/19 18:49:27 by nakebli          ###   ########.fr       */
+/*   Updated: 2023/02/20 10:19:55 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,12 @@ void	draw_map(t_data *data);
 //	hook
 int		fun(int keycode, t_data *data);
 
-//	free data
+//	free data && exit
 void	free_data(t_data *data);
+void	free_2d_arr(char **map);
+void	befor_exit(char **map, char *msg);
 
-//	drawing assisters
+// drawing assisters
 void	top_assister(t_data *data);
 void	bottom_assister(t_data *data);
 void	left_assister(t_data *data);
