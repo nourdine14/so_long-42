@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hook.c                                             :+:      :+:    :+:   */
+/*   hook_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 19:27:05 by nakebli           #+#    #+#             */
-/*   Updated: 2023/02/21 11:50:22 by nakebli          ###   ########.fr       */
+/*   Updated: 2023/02/21 12:53:18 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../solong.h"
+#include "../solong_bonus.h"
 
 void	bottom(t_data *data)
 {
@@ -30,7 +30,10 @@ void	bottom(t_data *data)
 				data->c--;
 			}
 			if (data->map[data->player_pos.y + 1][data->player_pos.x] != 'E')
+			{
 				bottom_assister(data);
+				print_step(data);
+			}
 		}
 	}
 }
@@ -53,7 +56,10 @@ void	top(t_data *data)
 				data->c--;
 			}
 			if (data->map[data->player_pos.y - 1][data->player_pos.x] != 'E')
+			{
 				top_assister(data);
+				print_step(data);
+			}
 		}
 	}
 }
@@ -76,7 +82,10 @@ void	left(t_data *data)
 				data->c--;
 			}
 			if (data->map[data->player_pos.y][data->player_pos.x - 1] != 'E')
+			{
 				left_assister(data);
+				print_step(data);
+			}
 		}
 	}
 }
@@ -99,7 +108,10 @@ void	right(t_data *data)
 				data->c--;
 			}
 			if (data->map[data->player_pos.y][data->player_pos.x + 1] != 'E')
+			{
 				right_assister(data);
+				print_step(data);
+			}
 		}
 	}
 }

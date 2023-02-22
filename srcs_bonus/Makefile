@@ -6,19 +6,19 @@
 #    By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/11 23:42:34 by nakebli           #+#    #+#              #
-#    Updated: 2023/02/21 11:55:58 by nakebli          ###   ########.fr        #
+#    Updated: 2023/02/21 12:58:47 by nakebli          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =    so_long
+NAME =    so_long_bonus
 
-SRCS =	main.c \
-		check/check_map.c \
-		check/path_valid.c \
-		check/path_valid_utils.c \
-		drawing/draw_map.c \
-		hooks/hook.c \
-		hooks/hook_utils.c
+SRCS =	main_bonus.c \
+		check/check_map_bonus.c \
+		check/path_valid_bonus.c \
+		check/path_valid_utils_bonus.c \
+		drawing/draw_map_bonus.c \
+		hooks/hook_utils_bonus.c \
+		hooks/hook_bonus.c 
 
 OBJS = $(SRCS:.c=.o)
 
@@ -26,7 +26,7 @@ CFLAGS = -Wall -Werror -Wextra
 
 MLXFLAGS = -lmlx -framework OpenGL -framework AppKit
 
-HEADER = solong.h
+HEADER = solong_bonus.h
 
 RM = rm -rf
 

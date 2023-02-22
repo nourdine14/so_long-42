@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   solong.h                                           :+:      :+:    :+:   */
+/*   solong_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 19:41:20 by nakebli           #+#    #+#             */
-/*   Updated: 2023/02/21 11:15:33 by nakebli          ###   ########.fr       */
+/*   Updated: 2023/02/21 12:59:57 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SOLONG_H
-# define SOLONG_H
+#ifndef SOLONG_BONUS_H
+# define SOLONG_BONUS_H
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -68,9 +68,11 @@ void	free_2d_arr(char **map);
 void	befor_exit(char *msg);
 
 // drawing assisters
+void	print_step(t_data *data);
 void	top_assister(t_data *data);
 void	bottom_assister(t_data *data);
 void	left_assister(t_data *data);
 void	right_assister(t_data *data);
+void	print_step(t_data *data);
 
 #endif

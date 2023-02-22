@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   check_map_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 13:51:46 by nakebli           #+#    #+#             */
-/*   Updated: 2023/02/21 15:36:35 by nakebli          ###   ########.fr       */
+/*   Updated: 2023/02/21 14:43:59 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../solong.h"
+#include "../solong_bonus.h"
 
 static void	check_top_bottom(int c, char *map, size_t len, int h)
 {

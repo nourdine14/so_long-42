@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nakebli <nakebli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 20:12:07 by nakebli           #+#    #+#             */
-/*   Updated: 2023/02/21 14:32:03 by nakebli          ###   ########.fr       */
+/*   Updated: 2023/02/21 12:52:56 by nakebli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "solong.h"
+#include "solong_bonus.h"
 
 void	befor_exit(char *msg)
 {
@@ -24,6 +24,7 @@ char	**get_height(char *map_name, t_data *data)
 	char	*line;
 	int		fd;
 
+	printf("%s", map_name);
 	data->height = 0;
 	fd = open(map_name, O_RDWR);
 	if (fd < 0)
@@ -57,7 +58,9 @@ int	check_all(t_data *data, int fd)
 
 int	destroy(t_data *data)
 {
-	(void)data;
+	if (data->image)
+		mlx_destroy_image(data->mlx, data->image);
+	mlx_destroy_window(data->mlx, data->win);
 	exit (0);
 	return (0);
 }
@@ -81,7 +84,7 @@ int	main(int ac, char **av)
 		return (1);
 	data.mlx = mlx_init();
 	data.win = mlx_new_window(data.mlx,
-			ft_strlen(data.map[0]) * SIZE, data.height * SIZE, "pipo");
+			ft_strlen(data.map[0]) * SIZE, (data.height * SIZE) + 40, "pipo");
 	draw_map(&data);
 	mlx_hook(data.win, 02, 0, &fun, &data);
 	mlx_hook(data.win, 17, 0, &destroy, &data);
